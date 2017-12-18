@@ -1,0 +1,14 @@
+name: sitkpySPIE18
+
+channels:
+  - simpleitk
+
+dependencies:
+  - python=3.4
+  - jupyter
+  - matplotlib
+  - ipywidgets
+  - numpy
+  - scipy
+  - pandas
+  - SimpleITK>=1.0.0

@@ -1,0 +1,163 @@
+<html>
+<head>
+  <title> SimpleITK Course @ SPIE Medical Imaging 2018 </title>
+
+<!-- Include in <head> to load fonts from Google -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<style>
+  body {
+	text-align: justify;
+	font-family: "Roboto Condensed", sans-serif;
+  }
+
+ #nav {
+        margin-top: -8px;
+	width: 900;
+	padding: 0;
+        z-index: 100;
+        background-color: #fff;
+ }
+
+#nav ul {
+    list-style-type: none;
+}
+
+#nav li {
+	float: left;
+}
+
+#nav li a {
+	display: block;
+	padding: 8px 15px;
+	text-decoration: none;
+	color: #069;
+}
+
+#nav li a:hover {
+	color: #c00;
+	background-color: #fff;
+}
+
+pre, code {
+ background-color: LightGrey;
+}
+
+  </style>
+
+</head>
+
+<body>
+
+<table id="nav">
+<tr><td align="center">
+  <h1>February 11 2018</h1> <img src="simpleITKAtSPIE18Logo.png" border="0" height="150" align="middle" alt="SimpleITK at SPIE 2018">
+</tr></td>
+<tr><td>
+<ul>
+  <li><a class="active" href="#overview"><span style="font-weight:bold">OVERVIEW</span></a></li>
+  <li><a href="#organizers"><span style="font-weight:bold">ORGANIZERS</span></a></li>
+  <li><a href="#prerequisites"><span style="font-weight:bold">PREREQUISITES</span></a></li>
+  <li><a href="#program"><span style="font-weight:bold">PROGRAM</span></a></li>
+</ul>
+<tr><td>
+</table>
+
+<table width="900" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+<p style="background-color:CornflowerBlue;">
+To contact us with problems or questions, please post to this repository's <a href="https://github.com/SimpleITK/SPIE2018_COURSE/issues">GitHub issue reporting system</a> (requires a GitHub user account).
+</p>
+
+
+<a id="overview"></a><h3>Overview</h3>
+
+<p>
+<a href="https://github.com/SimpleITK/SimpleITK">SimpleITK</a> is a simplified programming interface to the algorithms and data structures of the <a href="https://itk.org/">Insight Segmentation and Registration Toolkit</a> (ITK). It supports bindings for multiple programming languages including C++, Python, R, Java, C#, Lua, Ruby and TCL. Combining SimpleITK's Python binding with the <a href="http://jupyter.org/">Jupyter notebook</a> web application creates an environment which facilitates collaborative development of biomedical image analysis workflows.
+</p>
+
+<p>
+In this course, we will use a hands-on approach utilizing Python based SimpleITK Jupyter notebooks to explore and experiment with various toolkit features. Participants will follow along using their personal laptops, enabling them to explore the effects of changes and settings not covered by the instructor. We will start by introducing the toolkit's two basic data elements, Images and Transformations. We will then explore the various features available in the toolkit's registration framework including: optimizer selection, the use of linear and deformable transformations, the embedded multi-resolution framework, self-calibrating optimizers and the use of callbacks for registration progress monitoring. Finally, we will show how to use SimpleITK as a tool for image preparation and data augmentation for deep learning via spatial and intensity transformations.
+</p>
+
+<p>
+Beyond the notebooks used in this course you can find the <a href="https://github.com/InsightSoftwareConsortium/SimpleITK-Notebooks">main SimpleITK notebooks repository</a> on GitHub.
+</p>
+
+<a id="organizers"></a><h3>Organizers</h3>
+<ul>
+<li>Hans J. Jhonson, University of Iowa.</li>
+<li>Bradley C. Lowekamp, Medical Science & Computing and National Institutes of Health.</li>
+<li>Ziv Yaniv, TAJ Technologies Inc. and National Institutes of Health.</li>
+</ul>
+
+<a id="prerequisites"></a><h3>Prerequisites</h3>
+
+<p>
+If you encounter problems or have questions, please post using this repository's <a href="https://github.com/SimpleITK/SPIE2018_COURSE/issues">GitHub issue reporting system</a> (requires a GitHub user account).
+</p>
+
+<p>
+In this course we will use the Anaconda Python distribution. Please follow the instructions below to setup the environment we will use during the course. All commands below are issued on the <b>command line</b> (Linux/Mac - terminal, Windows - Anaconda Prompt).
+</p>
+
+<ol>
+<li>
+<a href="https://www.anaconda.com/download/">Download and install</a> the Anaconda Python 3.6 version for your operating system. We assume it is installed in a directory named anaconda3.
+</li>
+<li>
+  <ul>
+   <li> On Windows: open the Anaconda Prompt (found under the Anaconda3 start menu).</li>
+   <li> On Linux/Mac: on the command line <code>source anaconda3/bin/activate root</code></li>
+  </ul>
+</li>
+
+<li>
+Update the root anaconda environment and install the git version control system into it.
+<pre><code>conda update conda
+conda update anaconda
+conda install git
+</code></pre>
+</li>
+
+<li>
+Clone this repository:
+<pre><code>git clone https://github.com/SimpleITK/SPIE2018_COURSE.git
+</code></pre>
+
+
+<li>
+Create the virtual environment containing all packages required for the course:
+<pre><code>conda env create -f SPIE2018_COURSE/environment.yml
+</code></pre>
+</li>
+
+<li>
+Activate the virtual environment:
+  <ul>
+   <li> On Windows: open the Anaconda Prompt (found under the Anaconda3 start menu) <code>activate sitkpySPIE18</code>.</li>
+   <li> On Linux/Mac: on the command line <code>source anaconda3/bin/activate root</code></li>
+  </ul>
+
+</li>
+
+
+
+<a id="program"></a><h3>Program</h3>
+<ul style="list-style-type:none">
+<li>[1:30PM- 2:00PM] history and overview of SimpleITK. [<a href="simpleitkHistoricalOverview.pptx">history</a>, <a href="simpleitkFundamentalConcepts.pptx">overview</a>]</li>
+<li>[2:00PM- 2:30PM] transformations. </li>
+<li>[2:30PM- 3:00PM] images and resampling </li>
+<li>[3:00PM - 3:15PM] coffee break </li>
+<li>[3:15PM - 4:00PM] basic registration </li>
+<li>[4:00PM - 4:45PM] advanced registration </li>
+<li>[4:45PM - 5:15PM] data augmentation for deep learning </li>
+<li>[5:15PM - 5:30PM] notebook testing infrastructure and concluding remarks </li>
+</ul>
+
+</td>
+</tr>
+</table>
+</body>
+</html>
