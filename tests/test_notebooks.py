@@ -26,14 +26,8 @@ pytest -v --tb=short
 run python tests:
 pytest -v --tb=short tests/test_notebooks.py::Test_notebooks::test_python_notebook
 
-run r tests:
-pytest -v --tb=short tests/test_notebooks.py::Test_notebooks::test_r_notebook
-
 run specific Python test:
-pytest -v --tb=short tests/test_notebooks.py::Test_notebooks::test_python_notebook[00_Setup.ipynb]
-
-run specific R test:
-pytest -v --tb=short tests/test_notebooks.py::Test_notebooks::test_r_notebook[00_Setup.ipynb]
+pytest -v --tb=short tests/test_notebooks.py::Test_notebooks::test_python_notebook[setup.ipynb]
 
 -s : disable all capturing of output.
 """
@@ -80,7 +74,8 @@ class Test_notebooks(object):
 
     @pytest.mark.parametrize('notebook_file_name',
                              ['setup.ipynb',
-                              'spatial_transformations.ipynb'])
+                              'spatial_transformations.ipynb',
+                              'images_and_resampling.ipynb'])
     def test_python_notebook(self, notebook_file_name):
        self.evaluate_notebook(self.absolute_path_python(notebook_file_name), 'python')
 
