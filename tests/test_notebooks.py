@@ -79,7 +79,8 @@ class Test_notebooks(object):
     _expected_error_markup = 'simpleitk_error_expected'
 
     @pytest.mark.parametrize('notebook_file_name',
-                             ['setup.ipynb'])
+                             ['setup.ipynb',
+                              'spatial_transformations.ipynb'])
     def test_python_notebook(self, notebook_file_name):
        self.evaluate_notebook(self.absolute_path_python(notebook_file_name), 'python')
 
