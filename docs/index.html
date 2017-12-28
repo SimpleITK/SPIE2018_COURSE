@@ -110,13 +110,15 @@ In this course we will use the Anaconda Python distribution. Please follow the i
 <li>
 <a href= "https://fiji.sc/#download"> Download and install</a> the Fiji image viewer. This is the default image viewer used by SimpleITK.
 </li>
+
 <li>
 <a href="https://www.anaconda.com/download/">Download and install</a> the Anaconda Python 3.6 version for your operating system. We assume it is installed in a directory named anaconda3.
 </li>
+
 <li>
   <ul>
    <li> On Windows: open the Anaconda Prompt (found under the Anaconda3 start menu).</li>
-   <li> On Linux/Mac: on the command line <code>source anaconda3/bin/activate root</code></li>
+   <li> On Linux/Mac: on the command line <code>source path_to_anaconda3/bin/activate root</code></li>
   </ul>
 </li>
 
@@ -132,7 +134,7 @@ conda install git
 Clone this repository:
 <pre><code>git clone https://github.com/SimpleITK/SPIE2018_COURSE.git
 </code></pre>
-
+</li>
 
 <li>
 Create the virtual environment containing all packages required for the course:
@@ -144,17 +146,25 @@ Create the virtual environment containing all packages required for the course:
 Activate the virtual environment:
   <ul>
    <li> On Windows: open the Anaconda Prompt (found under the Anaconda3 start menu) <code>activate sitkpySPIE18</code>.</li>
-   <li> On Linux/Mac: on the command line <code>source anaconda3/bin/activate root</code></li>
+   <li> On Linux/Mac: on the command line <code>source path_to_anaconda3/bin/activate sitkpySPIE18</code></li>
   </ul>
-
 </li>
+
+<li>
+Go over the setup notebook (requires internet connectivity):
+<pre><code>cd SPIE2018_COURSE
+jupyter notebook setup.ipynb
+</code></pre>
+</li>
+
+</ol>
 
 
 
 <a id="program"></a><h3>Program</h3>
 <ul style="list-style-type:none">
 <li>[1:30PM- 2:00PM] history and overview of SimpleITK. [<a href="simpleitkHistoricalOverview.pptx">history</a>, <a href="simpleitkFundamentalConcepts.pptx">overview</a>]</li>
-<li>[2:00PM- 2:30PM] transformations. </li>
+<li>[2:00PM- 2:30PM] spatial transformations. </li>
 <li>[2:30PM- 3:00PM] images and resampling </li>
 <li>[3:00PM - 3:15PM] coffee break </li>
 <li>[3:15PM - 4:00PM] basic registration </li>
