@@ -131,6 +131,7 @@ ScalarChanAndVese
 ScaleSkewVersor
 ScaleTransform
 ScaleVersor
+SetAngle
 SetCenter
 SetDirection
 SetFixedInitialTransform
@@ -205,6 +206,7 @@ dropdown
 eikonal
 env
 estimateLearningRate
+euler
 fiducial's
 fiducials
 floordiv
