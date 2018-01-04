@@ -75,7 +75,8 @@ class Test_notebooks(object):
     @pytest.mark.parametrize('notebook_file_name',
                              ['setup.ipynb',
                               'spatial_transformations.ipynb',
-                              'images_and_resampling.ipynb'])
+                              'images_and_resampling.ipynb',
+                              'basic_registration.ipynb'])
     def test_python_notebook(self, notebook_file_name):
        self.evaluate_notebook(self.absolute_path_python(notebook_file_name), 'python')
 
