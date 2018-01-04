@@ -1,6 +1,7 @@
 ANTSNeighborhoodCorrelation
 API
 Acknowledgements
+AddTransform
 AffineTransform
 Args
 BFGS
@@ -79,6 +80,8 @@ ID's
 IPython
 ITK
 ITK's
+ITKv
+ImageFileReader
 ImageJ
 ImageRegistrationMethod
 ImageSeriesReader
@@ -106,6 +109,7 @@ Marschner
 MattesMutualInformation
 MaximumEntropy
 MeanSquares
+MetaDataRead
 MetricEvaluate
 NeighborhoodConnected
 Nelder
@@ -134,6 +138,7 @@ ScaleVersor
 SetAngle
 SetCenter
 SetDirection
+SetFileName
 SetFixedInitialTransform
 SetInitialTransform
 SetInterpolator
@@ -150,6 +155,8 @@ SetOrigin
 SetPixel
 SetProbability
 SetScale
+SetShrinkFactorsPerLevel
+SetSmoothingSigmasPerLevel
 SetSpacing
 SetStandardDeviation
 SetStandardDeviation
@@ -157,6 +164,7 @@ ShapeDetection
 SimpleITK
 SimpleITK's
 SimpleITKv
+SmoothingSigmasAreSpecifiedInPhysicalUnitsOn
 StartEvent
 StatisticsImageFilter
 Subsampling
@@ -201,6 +209,7 @@ dataframe
 defaultPixelValue
 dev
 disp
+displaystyle
 documentclass
 dropdown
 eikonal
@@ -218,6 +227,7 @@ greyscale
 honours
 iff
 img
+init
 initialNeighborhoodRadius
 inline
 inlined
@@ -248,6 +258,7 @@ numberOfIterations
 numberOfSteps
 numpy
 offline
+optimizerScales
 originalControlPointDisplacements
 originalDisplacements
 otsu
@@ -273,6 +284,7 @@ resampling
 scipy
 segBlobs
 segChannel
+shrinkFactors
 sitk
 sitkAnnulus
 sitkBSpline
@@ -297,6 +309,7 @@ sitkVectorFloat
 sitkVectorInt
 sitkVectorUInt
 sitkWelchWindowedSinc
+smoothingSigmas
 spatio
 stepLength
 subsampling
