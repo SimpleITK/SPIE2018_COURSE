@@ -311,6 +311,7 @@ sitkVectorUInt
 sitkWelchWindowedSinc
 smoothingSigmas
 spatio
+spc
 stepLength
 subsampling
 supersampling

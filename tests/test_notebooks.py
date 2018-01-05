@@ -76,7 +76,8 @@ class Test_notebooks(object):
                              ['setup.ipynb',
                               'spatial_transformations.ipynb',
                               'images_and_resampling.ipynb',
-                              'basic_registration.ipynb'])
+                              'basic_registration.ipynb',
+                              'data_augmentation.ipynb'])
     def test_python_notebook(self, notebook_file_name):
        self.evaluate_notebook(self.absolute_path_python(notebook_file_name), 'python')
 
