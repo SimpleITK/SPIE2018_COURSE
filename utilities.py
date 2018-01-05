@@ -93,3 +93,91 @@ def display_displacement_scaling_effect(s, original_x_mat, original_y_mat, tx, o
     plt.legend(loc=(0.25,1.01))
     plt.xlim((-2.5,2.5))
     plt.ylim((-2.5,2.5))
+
+
+def parameter_space_regular_grid_sampling(*transformation_parameters):
+    '''
+    Create a list representing a regular sampling of the parameter space.
+    Args:
+        *transformation_paramters : two or more numpy ndarrays representing parameter values. The order
+                                    of the arrays should match the ordering of the SimpleITK transformation
+                                    parameterization (e.g. Similarity2DTransform: scaling, rotation, tx, ty)
+    Return:
+        List of lists representing the regular grid sampling.
+
+    Examples:
+        #parameterization for 2D translation transform (tx,ty): [[1.0,1.0], [1.5,1.0], [2.0,1.0]]
+        >>>> parameter_space_regular_grid_sampling(np.linspace(1.0,2.0,3), np.linspace(1.0,1.0,1))
+    '''
+    return [[np.asscalar(p) for p in parameter_values]
+            for parameter_values in np.nditer(np.meshgrid(*transformation_parameters))]
+
+
+def similarity3D_parameter_space_regular_sampling(thetaX, thetaY, thetaZ, tx, ty, tz, scale):
+    '''
+    Create a list representing a regular sampling of the 3D similarity transformation parameter space. As the
+    SimpleITK rotation parameterization uses the vector portion of a versor we don't have an
+    intuitive way of specifying rotations. We therefor use the ZYX Euler angle parametrization and convert to
+    versor.
+    Args:
+        thetaX, thetaY, thetaZ: numpy ndarrays with the Euler angle values to use.
+        tx, ty, tz: numpy ndarrays with the translation values to use.
+        scale: numpy array with the scale values to use.
+    Return:
+        List of lists representing the parameter space sampling (vx,vy,vz,tx,ty,tz,s).
+    '''
+    return [list(eul2quat(parameter_values[0],parameter_values[1], parameter_values[2])) +
+            [np.asscalar(p) for p in parameter_values[3:]] for parameter_values in np.nditer(np.meshgrid(thetaX, thetaY, thetaZ, tx, ty, tz, scale))]
+
+
+def eul2quat(ax, ay, az, atol=1e-8):
+    '''
+    Translate between Euler angle (ZYX) order and quaternion representation of a rotation.
+    Args:
+        ax: X rotation angle in radians.
+        ay: Y rotation angle in radians.
+        az: Z rotation angle in radians.
+        atol: tolerance used for stable quaternion computation (qs==0 within this tolerance).
+    Return:
+        Numpy array with three entries representing the vectorial component of the quaternion.
+
+    '''
+    # Create rotation matrix using ZYX Euler angles and then compute quaternion using entries.
+    cx = np.cos(ax)
+    cy = np.cos(ay)
+    cz = np.cos(az)
+    sx = np.sin(ax)
+    sy = np.sin(ay)
+    sz = np.sin(az)
+    r=np.zeros((3,3))
+    r[0,0] = cz*cy
+    r[0,1] = cz*sy*sx - sz*cx
+    r[0,2] = cz*sy*cx+sz*sx
+
+    r[1,0] = sz*cy
+    r[1,1] = sz*sy*sx + cz*cx
+    r[1,2] = sz*sy*cx - cz*sx
+
+    r[2,0] = -sy
+    r[2,1] = cy*sx
+    r[2,2] = cy*cx
+
+    # Compute quaternion:
+    qs = 0.5*np.sqrt(r[0,0] + r[1,1] + r[2,2] + 1)
+    qv = np.zeros(3)
+    # If the scalar component of the quaternion is close to zero, we
+    # compute the vector part using a numerically stable approach
+    if np.isclose(qs,0.0,atol):
+        i= np.argmax([r[0,0], r[1,1], r[2,2]])
+        j = (i+1)%3
+        k = (j+1)%3
+        w = np.sqrt(r[i,i] - r[j,j] - r[k,k] + 1)
+        qv[i] = 0.5*w
+        qv[j] = (r[i,j] + r[j,i])/(2*w)
+        qv[k] = (r[i,k] + r[k,i])/(2*w)
+    else:
+        denom = 4*qs
+        qv[0] = (r[2,1] - r[1,2])/denom;
+        qv[1] = (r[0,2] - r[2,0])/denom;
+        qv[2] = (r[1,0] - r[0,1])/denom;
+    return qv
