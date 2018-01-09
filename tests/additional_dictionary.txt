@@ -171,6 +171,7 @@ Subsampling
 SymmetricForcesDemonsRegistrationFilter
 TRE
 TREs
+Thirion
 ThresholdSegmentation
 TransformContinuousIndexToPhysicalPoint
 TransformPoint
