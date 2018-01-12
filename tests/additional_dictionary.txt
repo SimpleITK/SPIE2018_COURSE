@@ -177,6 +177,7 @@ TransformContinuousIndexToPhysicalPoint
 TransformPoint
 TranslationTransform
 UInt
+VGG
 Vandemeulebroucke
 VectorConfidenceConnected
 VersorRigid
@@ -274,6 +275,7 @@ overfitting
 param
 pixelated
 pre
+pretrained
 py
 pyplot
 recognised
