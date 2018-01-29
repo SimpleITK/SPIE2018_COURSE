@@ -237,6 +237,7 @@ interpolator
 interpolators
 ipywidgets
 jn
+jupyter
 labelForUndecidedPixels
 labelled
 labelling
@@ -254,6 +255,7 @@ multiscale
 myshow
 nD
 nbagg
+nbextension
 np
 num
 numberOfIterations
@@ -339,6 +341,7 @@ vertices
 voxel
 voxel's
 voxels
+widgetsnbextension
 wikimedia
 xpixels
 xtable
